@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
 import Login from './src/views/login';
-import Main from './src/views/main';
+import Root from './src/views/main';
 import GlobalStyles from './src/styles/styles';
 
-const App = () => {
-  return (
-          <View style={[GlobalStyles.container]}>
-              <Main/>
+class App extends React.Component {
+
+    render() {
+    return (
+            <View style={{flex: 1}}>
+                < Root {...this.props} />
             </View>
-   
-  );
-};
-
-
+    
+    );
+  }
+}
 export default App;

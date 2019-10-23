@@ -7,7 +7,7 @@ import GlobalStyles from './src/styles/styles';
 
 const App = () => {
   return (
-          <View style={[GlobalStyles.container]}>
+          <View style={{flex:1}}>
               <Main/>
             </View>
    

@@ -1,7 +1,7 @@
 import React from "react";
 
 import createStore from "../store/createStore";
-import AppContainer from "../AppContainer/appIndex";
+import AppContainer from "../containers/AppContainer/appIndex";
 export default class Root extends React.Component{
     renderApp(){
       const initialState = window.__INITIAL_STATE__;

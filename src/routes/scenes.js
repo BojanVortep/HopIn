@@ -1,6 +1,6 @@
 import React from "react";
 import {Actions, Scene } from "react-native-router-flux";
-import HomeContainer from "./Home/containers/HomeContainer";
+import HomeContainer from "../containers/HomeContainer";
 
 const scenes = Actions.create(
 

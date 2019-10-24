@@ -3,7 +3,7 @@ import { Router } from "react-native-router-flux";
 
 import PropTypes from 'prop-types';
 
-import scenes from "../routes/scenes";
+import scenes from "/Development/Projects/react native/myapp/HopIn/src/routes/scenes";
 
 import { Provider } from "react-redux";
 

@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
-import Home from "../components/Home";
-import { setName } from "../modules/homeActions";
+import Home from "../views/Home";
+import { setName } from "../actions/homeActions";
 
 const mapStateToProps = (state) => ({
     name: state.home.name

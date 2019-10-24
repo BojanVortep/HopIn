@@ -1,5 +1,5 @@
 import update from "react-addons-update";
-import constants from "./actionConstants";
+import constants from "../constants/actionConstants";
 
 const { SET_NAME } = constants; 
 

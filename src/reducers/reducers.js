@@ -1,5 +1,5 @@
 import {combineReducers } from "redux";
-import { HomeReducer as home} from "../routes/Home/modules/homeActions";
+import { HomeReducer as home} from "../actions/homeActions";
 export const makeRootReducer = () => {
     return combineReducers ({
         home

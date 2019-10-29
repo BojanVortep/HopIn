@@ -4,6 +4,7 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 
 import LoginScreen from '../views/loginScreen';
 import Home from '../views/homeScreen';
+import PassangersScreen from '../views/passangersScreen';
 
 ///---------------Main screen tab components
 //import TraderList from '../views/tabs/traderList';
@@ -41,6 +42,7 @@ const TabNavigation = createATSTabNavigator({
  const StackNavigation = createStackNavigator(
     {
         Home: Home,
+        PassangersScreen: PassangersScreen,
     },
     {
         initialRouteName: "Home",

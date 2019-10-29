@@ -1,17 +1,22 @@
 import React from "react";
-import {View, Text} from "react-native";
+import {View, Text, Button} from "react-native";
 import {Container} from "native-base";
+import {  Navigate } from '../utils/navigator';
 
 class Home extends React.Component {
 
-  /*   componentDidMount() {
-        this.props.setName();
+    constructor(props){
+        super(props);
     }
- */
     render() {
         return (
             <Container style={{felx: 1, justifyContent: 'center', alignItems: 'center'}}>
                 <Text> Hello this. props. name </Text>
+                <Button 
+                      title="Go to Passangers Page"
+                      onPress ={() => {
+                                    Navigate("PassangersScreen")
+                                }}/>
             </Container>
         );
      

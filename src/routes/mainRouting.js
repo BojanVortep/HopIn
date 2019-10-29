@@ -5,6 +5,7 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import LoginScreen from '../views/loginScreen';
 import Home from '../views/homeScreen';
 import PassangersScreen from '../views/passangersScreen';
+import SignUpScreen from '../views/signUpScreen';
 
 ///---------------Main screen tab components
 //import TraderList from '../views/tabs/traderList';
@@ -43,6 +44,7 @@ const TabNavigation = createATSTabNavigator({
     {
         Home: Home,
         PassangersScreen: PassangersScreen,
+        //SignUpScreen: SignUpScreen
     },
     {
         initialRouteName: "Home",
@@ -72,6 +74,7 @@ const DrawerNavigation = createDrawerNavigator({
 const MainRouting =
     createSwitchNavigator({
         LoginScreen: LoginScreen,
+        SignUpScreen: SignUpScreen,
         Main: StackNavigation
     },
         {

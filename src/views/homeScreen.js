@@ -14,9 +14,7 @@ class Home extends React.Component {
                 <Text> Hello this. props. name </Text>
                 <Button 
                       title="Go to Passangers Page"
-                      onPress ={() => {
-                                    Navigate("PassangersScreen")
-                                }}/>
+                      onPress ={() => { Navigate("PassangersScreen") }}/>
             </Container>
         );
      

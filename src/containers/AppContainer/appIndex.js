@@ -3,11 +3,11 @@ import { Router } from "react-native-router-flux";
 
 import PropTypes from 'prop-types';
 
-import scenes from "/Development/Projects/react native/myapp/HopIn/src/routes/scenes";
+import scenes from "../../routes/scenes";
 
 import { Provider } from "react-redux";
 
-export default class AppContainer extends Component {
+export default class AppContainer1 extends Component {
     static propTypes = {
         store: PropTypes.object.isRequired
     }

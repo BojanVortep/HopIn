@@ -1,11 +1,17 @@
 import { createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
 import LoginScreen from '../views/loginScreen';
 import Home from '../views/homeScreen';
-import PassangersScreen from '../views/passangersScreen';
+import Passangers from '../views/passangersScreen';
 import SignUpScreen from '../views/signUpScreen';
+import Driver from '../views/driverTab';
+import Form from '../views/formScreen';
+//import ChannelScreen from '../views/streamChat';
+
+
 
 ///---------------Main screen tab components
 //import TraderList from '../views/tabs/traderList';
@@ -23,14 +29,15 @@ TraderList.navigationOptions = {
     tabBarLabel: 'Trader List'
 }
 SearchOffer.navigationOptions = {
-    tabBarLabel: 'Search Offer'
+    tabBarLabel: 'Search Offer' */
 
 
-const TabNavigation = createATSTabNavigator({
-    TraderList: TraderList,
-    SearchOffer: SearchOffer,
+const TabNavigation = createMaterialTopTabNavigator({
+    Driver: Driver,
+    Passangers: Passangers,
+});
 
-},
+/*
     {
         // initialRouteName: 'TraderList',
         headerMode: 'none',
@@ -43,12 +50,17 @@ const TabNavigation = createATSTabNavigator({
  const StackNavigation = createStackNavigator(
     {
         Home: Home,
-        PassangersScreen: PassangersScreen,
+        Driver: Driver,
+        Passangers: Passangers,
+        Form: Form,
+        //TabNavigation: TabNavigation,
+        //MainScreen: TabNavigation,
+        //Passangers: Passangers,
         //SignUpScreen: SignUpScreen
     },
     {
         initialRouteName: "Home",
-        //headerMode: 'none'
+        headerMode: 'none'
     }
 );
 

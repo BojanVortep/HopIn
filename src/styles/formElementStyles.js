@@ -27,8 +27,8 @@ export const FormElementStyles = StyleSheet.create({
         height: 43
     },
     roundedButtonItem: {
-        marginLeft: '28%',
-        marginRight: '28%',
+        //marginLeft: '0%',
+        //marginRight: '0%',
         backgroundColor: 'white',
         borderRadius: 10
     },

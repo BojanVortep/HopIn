@@ -13,8 +13,8 @@ class LoginScreen extends React.PureComponent {
   return (
           <ImageBackground  style={LoginScreenStyle.imgBackground}
                             resizeMode='cover'
-                            source={require('../resurces/guy.jpg')}>
-            <LinearGradient colors={['rgba(192,192,170,0.85)', 'rgba(28,239,255,0.95)']}
+                            source={require('../resurces/background.jpg')}>
+            <LinearGradient colors={['rgba(192,192,170,0.65)', 'rgba(28,239,255,0.75)']}
                             style={LoginScreenStyle.linearGradient}>
               <View style={LoginScreenStyle.container}>
               <Image resizeMode='center'
@@ -23,17 +23,17 @@ class LoginScreen extends React.PureComponent {
                 height: 150,
               }}
               source={require('../resurces/Logo.png')} />
-                <RoundedInput placeholderText='Username'
+                <RoundedInput placeholderText='Корисничко име'
                 isBorder='true'
                 isShadowComponent='true' />  
-                <RoundedInput placeholderText='Password'
+                <RoundedInput placeholderText='Лозинка'
                 isBorder='true'
                 isPasswordField={true} />
-                <RoundedButton style={{ backgroundColor: '#5799a6' }}
+                <RoundedButton style={{ backgroundColor: '#5799a6', marginLeft: '20%', marginRight: '20%', }}
                 buttonText='Најави се'
                 onSubmit={() => { Navigate("Home") }}
               /> 
-              <RoundedButton style={{ backgroundColor: '#5777a6', marginTop: '2%'}}
+              <RoundedButton style={{ backgroundColor: '#5777a6', marginTop: '2%', marginLeft: '20%', marginRight: '20%',}}
                 buttonText='Регистрирај се'
                 isSmall='false'
                 onSubmit={() => { Navigate("SignUpScreen") }}

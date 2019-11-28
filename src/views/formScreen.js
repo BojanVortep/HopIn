@@ -7,6 +7,8 @@ import {  RoundedButton, RoundedInput } from '../components/formElements';
 import {FormStyles}  from '../styles/formStyles';
 import ViewWrap  from '../components/viewWrap';
 import DatePicker from 'react-native-datepicker';
+import NumericInput from 'react-native-numeric-input';
+import icon from 'react-native-vector-icons';
 
 class Form extends React.Component {
 
@@ -22,7 +24,13 @@ class Form extends React.Component {
         this.state = {
             timeWhen: 'izberi'
         },
-        this.state = {date:"2016-05-15"}
+        this.state = {
+          date:"2016-05-15"
+        },
+        this.state = {
+          value:"1"
+        }
+        
     }
     
     render() {
@@ -118,6 +126,25 @@ class Form extends React.Component {
                 <Picker.Item label="07:00" value="7" />
             </Picker>
             </View>
+            </View>
+            <View style = {{flexDirection: 'row'}}>
+                      <Text style = {{marginTop:10, marginRight: 10}}>Spots:</Text>
+            <NumericInput 
+            value={this.state.value} 
+            onChange={value => this.setState({value})} 
+            //onLimitReached={(isMax,msg) => console.log(isMax,msg)}
+            totalWidth={240} 
+            totalHeight={30} 
+            maxValue={8}
+            minValue={1}
+            //iconSize={25}
+            step={1}
+            //valueType='real'
+            rounded 
+            textColor='#B0228C' 
+            iconStyle={{ color: 'white' }} 
+            rightButtonBackgroundColor='#5799a6' 
+            leftButtonBackgroundColor='#5777a6'/>
             </View>
             </View>
             

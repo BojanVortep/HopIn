@@ -26,7 +26,7 @@ class Passangers extends React.Component {
                   <Text style={[DetailsScreenStyles.listLabel]}> Датум :</Text>
                   <Text style={[DetailsScreenStyles.listLabel]}>  Време: </Text>
                   <Text style={[DetailsScreenStyles.listLabel]}>  Контакт: </Text>
-                  <Text style={[DetailsScreenStyles.listLabel]}>  Слободни места: </Text>
+                  <Text style={[DetailsScreenStyles.listLabel]}>  Потребни места: </Text>
 
 
                 </View>

@@ -9,9 +9,11 @@ import Passangers from '../views/passangersScreen';
 import SignUpScreen from '../views/signUpScreen';
 import Driver from '../views/driverTab';
 import Form from '../views/formScreen';
+import LoadingScreen from '../views/loadingScreen';
+
+import * as firebase from 'firebase';
+
 //import ChannelScreen from '../views/streamChat';
-
-
 
 ///---------------Main screen tab components
 //import TraderList from '../views/tabs/traderList';
@@ -19,6 +21,20 @@ import Form from '../views/formScreen';
 
 //import { TabActivated } from '../actions/mainAction';
 //import Store from '../store/createStore';
+
+ var firebaseConfig = {
+    apiKey: "AIzaSyDJysRZSJLt4oFDt7AznCvzgiJtRnhXI1M",
+    authDomain: "hopin-23506.firebaseapp.com",
+    databaseURL: "https://hopin-23506.firebaseio.com",
+    projectId: "hopin-23506",
+    storageBucket: "hopin-23506.appspot.com",
+    messagingSenderId: "1051707942900",
+    appId: "1:1051707942900:web:a545f0311d74243bb43ba1",
+    measurementId: "G-ZM3JQJZDZV"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  //firebase.analytics(); 
 
 /* const MainTabs = {
     TraderList: TraderList,
@@ -83,14 +99,24 @@ const DrawerNavigation = createDrawerNavigator({
         //contentComponent: MainSideBar
     });
 
+const AuthStack = createStackNavigator ({
+    Login: LoginScreen,
+    SignUp: SignUpScreen
+},
+{
+    headerMode: 'none'
+});
+
 const MainRouting =
     createSwitchNavigator({
-        LoginScreen: LoginScreen,
-        SignUpScreen: SignUpScreen,
+        Loading: LoadingScreen,
+        Auth: AuthStack,
+        //LoginScreen: LoginScreen,
+        //SignUpScreen: SignUpScreen,
         Main: StackNavigation
     },
         {
-            initialRouteName: "LoginScreen",
+            initialRouteName: "Loading",
             headerMode: 'none'
         });
 

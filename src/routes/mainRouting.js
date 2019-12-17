@@ -1,7 +1,11 @@
+import React from 'react';
 import { createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
+import Icon from 'native-base';
+import Ionicons from 'react-native-vector-icons';
+import { createBottomTabNavigator, createMaterialTopTabNavigator } from "react-navigation-tabs";
+
 
 import LoginScreen from '../views/loginScreen';
 import Home from '../views/homeScreen';
@@ -11,41 +15,10 @@ import Driver from '../views/driverTab';
 import Form from '../views/formScreen';
 import LoadingScreen from '../views/loadingScreen';
 
-import * as firebase from 'firebase';
-
-//import ChannelScreen from '../views/streamChat';
-
-///---------------Main screen tab components
-//import TraderList from '../views/tabs/traderList';
-//import SearchOffer from '../views/tabs/searchOffer';
-
-//import { TabActivated } from '../actions/mainAction';
-//import Store from '../store/createStore';
-
- var firebaseConfig = {
-    apiKey: "AIzaSyDJysRZSJLt4oFDt7AznCvzgiJtRnhXI1M",
-    authDomain: "hopin-23506.firebaseapp.com",
-    databaseURL: "https://hopin-23506.firebaseio.com",
-    projectId: "hopin-23506",
-    storageBucket: "hopin-23506.appspot.com",
-    messagingSenderId: "1051707942900",
-    appId: "1:1051707942900:web:a545f0311d74243bb43ba1",
-    measurementId: "G-ZM3JQJZDZV"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  //firebase.analytics(); 
-
-/* const MainTabs = {
-    TraderList: TraderList,
-    SearchOffer: SearchOffer,
-}
-
-TraderList.navigationOptions = {
-    tabBarLabel: 'Trader List'
-}
-SearchOffer.navigationOptions = {
-    tabBarLabel: 'Search Offer' */
+import MessageScreen from "../views/messageScreen";
+import PostScreen from "../views/postScreen";
+import NotificationScreen from "../views/notificationScreen";
+import ProfileScreen from "../views/profileScreen";
 
 
 const TabNavigation = createMaterialTopTabNavigator({
@@ -53,51 +26,93 @@ const TabNavigation = createMaterialTopTabNavigator({
     Passangers: Passangers,
 });
 
-/*
+const AppContainer = createStackNavigator(
     {
-        // initialRouteName: 'TraderList',
-        headerMode: 'none',
-        backBehavior: 'history',
-        onIndexChanged: (index) => {
-            Store.dispatch(TabActivated(index));
+        default: createBottomTabNavigator(
+            {
+                Home: {
+                    screen: Home,
+                    navigationOptions: {
+                        tabBarOptions: ({ tintColor }) => <Ionicons name="ios-home" size={24} color={tintColor} />
+                    }
+                },
+                Form: {
+                    screen: Form,
+                    navigationOptions: {
+                        tabBarOptions: ({ tintColor }) => <Ionicons name="ios-chatboxes" size={24} color={tintColor} />
+                    }
+                },
+                Post: {
+                    screen: PostScreen,
+                    navigationOptions: {
+                        tabBarOptions: ({ tintColor }) => (
+                            <Ionicons
+                                name="ios-add-circle"
+                                size={48}
+                                color="#E9446A"
+                                style={{
+                                    shadowColor: "#E9446A",
+                                    shadowOffset: { width: 0, height: 10 },
+                                    shadowRadius: 10,
+                                    shadowOpacity: 0.3
+                                }}
+                            />
+                        )
+                    }
+                },
+                Driver: {
+                    screen: Driver,
+                    navigationOptions: {
+                        tabBarOptions: ({ tintColor }) => <Ionicons name="ios-notifications" size={24} color={tintColor} />
+                    }
+                },
+                Profile: {
+                    screen: ProfileScreen,
+                    navigationOptions: {
+                        tabBarOptions: ({ tintColor }) => <Ionicons name="ios-person" size={24} color={tintColor} />
+                    }
+                }
+            },
+            {
+                defaultNavigationOptions: {
+                    tabBarOnPress: ({ navigation, defaultHandler }) => {
+                        if (navigation.state.key === "Post") {
+                            navigation.navigate("postModal");
+                        } else {
+                            defaultHandler();
+                        }
+                    }
+                },
+                tabBarOptions: {
+                    activeTintColor: "#161F3D",
+                    inactiveTintColor: "#B8BBC4",
+                    showLabel: false
+                }
+            }
+        ),
+        postModal: {
+            screen: PostScreen
         }
+    },
+    {
+        mode: "modal",
+        headerMode: "none"
+        // initialRouteName: "postModal"
     }
-); */
+);
+
  const StackNavigation = createStackNavigator(
     {
         Home: Home,
         Driver: Driver,
         Passangers: Passangers,
         Form: Form,
-        //TabNavigation: TabNavigation,
-        //MainScreen: TabNavigation,
-        //Passangers: Passangers,
-        //SignUpScreen: SignUpScreen
     },
     {
         initialRouteName: "Home",
         headerMode: 'none'
     }
 );
-
-const DrawerNavigation = createDrawerNavigator({
-    Home: Home,
-    //PreferenceScreen: PreferenceScreen,
-   // BookmarksScreen: BookmarksScreen,
-
-    // DetailScreen: {
-    //     DetailScreen,
-    //     navigationOptions: {
-    //         drawerLockMode: 'locked-closed'
-    //     }
-    // },
-},
-    {
-        //initialRouteName: "PreferenceScreen",
-        headerMode: 'none',
-        backBehavior: 'history',
-        //contentComponent: MainSideBar
-    });
 
 const AuthStack = createStackNavigator ({
     Login: LoginScreen,
@@ -111,9 +126,8 @@ const MainRouting =
     createSwitchNavigator({
         Loading: LoadingScreen,
         Auth: AuthStack,
-        //LoginScreen: LoginScreen,
-        //SignUpScreen: SignUpScreen,
-        Main: StackNavigation
+        Main: AppContainer,
+        
     },
         {
             initialRouteName: "Loading",

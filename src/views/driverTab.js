@@ -11,34 +11,6 @@ class Driver extends React.Component {
   constructor(props) {
     super(props);
   }
-/*     super()
-    this.state = {
-      dataSource: []
-    }
-  }
-  renderItem = ({item}) => {
-    return (
-      <View>
-      <Text>
-        {item.title}
-      </Text>
-    </View>
-    )
-  }
-
-  componentDidMount(){
-    const url = 'http://192.168.1.196:3000'
-    fetch(url)
-    .then((response) => response.json())
-    .then((responseJson) => {
-      this.setState({
-        dataSource: responseJson.bookSchema
-      })
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  } */
 
     render() {
         let {navigation} = this.props;

@@ -2,21 +2,22 @@ import React from "react";
 import {View, Text, Button, ActivityIndicator} from "react-native";
 import {Container, Icon} from "native-base";
 
-import * as firebase from 'firebase';
+import firebase from "firebase";
+import Fire from "../utils/fire";
 
 import {  Navigate } from '../utils/navigator';
-//import {  RoundedButton, RoundedInput } from '../components/formElements';
-
-//import {DetailsScreenStyles}  from '../styles/detailsScreenStyles';
 import ViewWrap  from '../components/viewWrap';
 
 class LoadingScreen extends React.Component {
-    componentDidMount () {
-        firebase.auth().onAuthStateChanged(user => {
-            Navigate(user ? "Main" : "Auth") 
-        })
+    componentDidMount() {
+        if (Fire.shared.uid) {
+            Navigate("App");
+        } else {
+            firebase.auth().onAuthStateChanged(user => {
+                Navigate(user ? "Main" : "Auth") 
+            });
+        }
     }
-
     render() {
         return (
           <ViewWrap>

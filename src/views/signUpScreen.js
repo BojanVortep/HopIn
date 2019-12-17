@@ -1,11 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image } from "react-native";
-import {Container} from "native-base";
+import {Container, Icon} from "native-base";
 import {  Navigate } from '../utils/navigator';
 import {  RoundedButton, RoundedInput } from '../components/formElements';
-import ViewWrap  from '../components/viewWrap';
 
 import * as firebase from "firebase";
+
+//import Fire from '../utils/fire'
+
 
 export default class SignUpScreen extends React.Component {
     state = {
@@ -32,13 +34,22 @@ export default class SignUpScreen extends React.Component {
             <View style={styles.container}>
                  <Image resizeMode='center'
               style={{
-                width: 150,
-                height: 150,
+                width: 50,
+                height: 50,
                 alignSelf: "center",
-                marginTop: 20
+                //marginTop: 20
               }}
               source={require('../resurces/drivee.png')} />
-                <Text style={styles.greeting}>{`Здраво!\nРегистрирај се овде.`}</Text>
+              <View style={{  alignItems: "center", width: "100%" }}>
+                    <Text style={styles.greeting}>{'Здраво!\nРегистрирај се овде'}</Text>
+                    <TouchableOpacity style={styles.avatar}>
+                        <Icon
+                            name="ios-add"
+                            size={40}
+                            color="#FFF"
+                        ></Icon>
+                    </TouchableOpacity>
+                </View>
 
                 <View style={styles.errorMessage}>
                     {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
@@ -137,55 +148,14 @@ const styles = StyleSheet.create({
         height: 52,
         alignItems: "center",
         justifyContent: "center"
+    },
+    avatar: {
+        width: 80,
+        height: 80,
+        backgroundColor: "#E1E2E6",
+        borderRadius: 50,
+        justifyContent: "center",
+        alignItems: "center"
     }
 });
 
-
-
-
-
-
-
-
-/* 
-class SignUpScreen extends React.PureComponent {
-
-    render() {
-        let {navigation} = this.props;
-        return (
-            <ViewWrap>
-            <Container style={{felx: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={{ alignSelf: 'flex-start', fontSize: 16, fontWeight: '400', marginBottom: '20%'}}>  Sign Up </Text> 
-                <RoundedInput placeholderText='Име и Презиме'
-                            isBorder='true'
-                            isShadowComponent='true' />  
-                <RoundedInput placeholderText='Email'
-                            isBorder='true'
-                            isShadowComponent='true' />  
-                <RoundedInput placeholderText='Потврди Email'
-                            isBorder='true'
-                            isShadowComponent='true' />  
-                <RoundedInput placeholderText='Корисничко име'
-                            isBorder='true'
-                            isShadowComponent='true' />
-                <RoundedInput placeholderText='Главна Локација'
-                            isBorder='true'
-                            isPasswordField={true} />
-                <RoundedInput placeholderText='Лозинка'
-                            isBorder='true'
-                            isPasswordField={true} />
-                <RoundedInput placeholderText='Потврди лозинка'
-                            isBorder='true'
-                            isPasswordField={true} />  
-                <Text> Избери слика:  |Browse|</Text>
-                <Button 
-                      title="Потврди"
-                      onPress ={() => { Navigate("LoginScreen") } }/>
-            </Container>
-            </ViewWrap>
-        );
-     
-    }
-}
-
-export default SignUpScreen; */

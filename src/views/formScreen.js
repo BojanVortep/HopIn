@@ -2,13 +2,12 @@ import React from "react";
 import {View, Text, Button} from "react-native";
 import {Container, Icon, Picker} from "native-base";
 import {  Navigate } from '../utils/navigator';
-import {  RoundedButton, RoundedInput } from '../components/formElements';
+import {  RoundedButton } from '../components/formElements';
 
 import {FormStyles}  from '../styles/formStyles';
 import ViewWrap  from '../components/viewWrap';
 import DatePicker from 'react-native-datepicker';
 import NumericInput from 'react-native-numeric-input';
-import icon from 'react-native-vector-icons';
 
 class Form extends React.Component {
 

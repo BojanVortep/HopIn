@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image } from "react-native";
 import {Container, Icon} from "native-base";
 import {  Navigate } from '../utils/navigator';
-import {  RoundedButton, RoundedInput } from '../components/formElements';
+import {  SignUpScreenStyle } from '../styles/signUpScreenStyles';
 
 import * as firebase from "firebase";
 
@@ -31,7 +31,7 @@ export default class SignUpScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={SignUpScreenStyle.container}>
                  <Image resizeMode='center'
               style={{
                 width: 50,
@@ -41,8 +41,8 @@ export default class SignUpScreen extends React.Component {
               }}
               source={require('../resurces/drivee.png')} />
               <View style={{  alignItems: "center", width: "100%" }}>
-                    <Text style={styles.greeting}>{'Здраво!\nРегистрирај се овде'}</Text>
-                    <TouchableOpacity style={styles.avatar}>
+                    <Text style={SignUpScreenStyle.greeting}>{'Здраво!\nРегистрирај се овде'}</Text>
+                    <TouchableOpacity style={SignUpScreenStyle.avatar}>
                         <Icon
                             name="ios-add"
                             size={40}
@@ -51,15 +51,15 @@ export default class SignUpScreen extends React.Component {
                     </TouchableOpacity>
                 </View>
 
-                <View style={styles.errorMessage}>
-                    {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
+                <View style={SignUpScreenStyle.errorMessage}>
+                    {this.state.errorMessage && <Text style={SignUpScreenStyle.error}>{this.state.errorMessage}</Text>}
                 </View>
 
-                <View style={styles.form}>
+                <View style={SignUpScreenStyle.form}>
                     <View>
-                        <Text style={styles.inputTitle}>Корисничко Име</Text>
+                        <Text style={SignUpScreenStyle.inputTitle}>Корисничко Име</Text>
                         <TextInput
-                            style={styles.input}
+                            style={SignUpScreenStyle.input}
                             autoCapitalize="none"
                             onChangeText={name => this.setState({ name })}
                             value={this.state.name}
@@ -67,9 +67,9 @@ export default class SignUpScreen extends React.Component {
                     </View>
 
                     <View style={{ marginTop: 32 }}>
-                        <Text style={styles.inputTitle}>Е-маил Адреса</Text>
+                        <Text style={SignUpScreenStyle.inputTitle}>Е-маил Адреса</Text>
                         <TextInput
-                            style={styles.input}
+                            style={SignUpScreenStyle.input}
                             autoCapitalize="none"
                             onChangeText={email => this.setState({ email })}
                             value={this.state.email}
@@ -77,9 +77,9 @@ export default class SignUpScreen extends React.Component {
                     </View>
 
                     <View style={{ marginTop: 32 }}>
-                        <Text style={styles.inputTitle}>Лозинка</Text>
+                        <Text style={SignUpScreenStyle.inputTitle}>Лозинка</Text>
                         <TextInput
-                            style={styles.input}
+                            style={SignUpScreenStyle.input}
                             secureTextEntry
                             autoCapitalize="none"
                             onChangeText={password => this.setState({ password })}
@@ -88,7 +88,7 @@ export default class SignUpScreen extends React.Component {
                     </View>
                 </View>
 
-                <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
+                <TouchableOpacity style={SignUpScreenStyle.button} onPress={this.handleSignUp}>
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Регистрирај се</Text>
                 </TouchableOpacity>
 
@@ -102,60 +102,3 @@ export default class SignUpScreen extends React.Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    greeting: {
-        marginTop: 32,
-        fontSize: 18,
-        fontWeight: "400",
-        textAlign: "center"
-    },
-    errorMessage: {
-        height: 72,
-        alignItems: "center",
-        justifyContent: "center",
-        marginHorizontal: 30
-    },
-    error: {
-        color: "#E9446A",
-        fontSize: 13,
-        fontWeight: "600",
-        textAlign: "center"
-    },
-    form: {
-        marginBottom: 48,
-        marginHorizontal: 30
-    },
-    inputTitle: {
-        color: "#8A8F9E",
-        fontSize: 10,
-        textTransform: "uppercase"
-    },
-    input: {
-        borderBottomColor: "#8A8F9E",
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        height: 40,
-        fontSize: 15,
-        color: "#161F3D"
-    },
-    button: {
-        marginHorizontal: 30,
-        backgroundColor: "#5799a6",
-        borderRadius: 4,
-        height: 52,
-        alignItems: "center",
-        justifyContent: "center"
-    },
-    avatar: {
-        width: 80,
-        height: 80,
-        backgroundColor: "#E1E2E6",
-        borderRadius: 50,
-        justifyContent: "center",
-        alignItems: "center"
-    }
-});
-

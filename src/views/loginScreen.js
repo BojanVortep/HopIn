@@ -1,16 +1,14 @@
 import { LoginScreenStyle } from '../styles/loginScreenStyles';
-import LinearGradient from 'react-native-linear-gradient';
-import {  RoundedButton, RoundedInput } from '../components/formElements';
+//import {  RoundedButton, RoundedInput } from '../components/formElements';
 import {  Navigate } from '../utils/navigator';
 
 //////////////////////////////////
 
 import React from "react";
-import { ImageBackground, Image, View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import { Image, View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import * as firebase from "firebase";
 
-import Fire from '../utils/fire'
-
+//import Fire from '../utils/fire'
 
 export default class LoginScreen extends React.Component {
   state = {
@@ -30,7 +28,7 @@ export default class LoginScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={LoginScreenStyle.container}>
                 <Image resizeMode='center'
               style={{
                 width: 150,
@@ -39,17 +37,17 @@ export default class LoginScreen extends React.Component {
                 marginTop: 20
               }}
               source={require('../resurces/Logo.png')} />
-                <Text style={styles.greeting}>{'Здраво.\nДобредојдове назад.'}</Text>
+                <Text style={LoginScreenStyle.greeting}>{'Здраво.\nДобредојдове назад.'}</Text>
 
-                <View style={styles.errorMessage}>
-                    {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
+                <View style={LoginScreenStyle.errorMessage}>
+                    {this.state.errorMessage && <Text style={LoginScreenStyle.error}>{this.state.errorMessage}</Text>}
                 </View>
 
-                <View style={styles.form}>
+                <View style={LoginScreenStyle.form}>
                     <View>
-                        <Text style={styles.inputTitle}>Е-маил Адреса</Text>
+                        <Text style={LoginScreenStyle.inputTitle}>Е-маил Адреса</Text>
                         <TextInput
-                            style={styles.input}
+                            style={LoginScreenStyle.input}
                             autoCapitalize="none"
                             onChangeText={email => this.setState({ email })}
                             value={this.state.email}
@@ -57,9 +55,9 @@ export default class LoginScreen extends React.Component {
                     </View>
 
                     <View style={{ marginTop: 32 }}>
-                        <Text style={styles.inputTitle}>Лозинка</Text>
+                        <Text style={LoginScreenStyle.inputTitle}>Лозинка</Text>
                         <TextInput
-                            style={styles.input}
+                            style={LoginScreenStyle.input}
                             secureTextEntry
                             autoCapitalize="none"
                             onChangeText={password => this.setState({ password })}
@@ -68,7 +66,7 @@ export default class LoginScreen extends React.Component {
                     </View>
                 </View>
 
-                <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
+                <TouchableOpacity style={LoginScreenStyle.button} onPress={this.handleLogin}>
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Најави се</Text>
                 </TouchableOpacity>
 
@@ -84,51 +82,3 @@ export default class LoginScreen extends React.Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    greeting: {
-        marginTop: 32,
-        fontSize: 18,
-        fontWeight: "400",
-        textAlign: "center"
-    },
-    errorMessage: {
-        height: 72,
-        alignItems: "center",
-        justifyContent: "center",
-        marginHorizontal: 30
-    },
-    error: {
-        color: "#E9446A",
-        fontSize: 13,
-        fontWeight: "600",
-        textAlign: "center"
-    },
-    form: {
-        marginBottom: 48,
-        marginHorizontal: 30
-    },
-    inputTitle: {
-        color: "#8A8F9E",
-        fontSize: 10,
-        textTransform: "uppercase"
-    },
-    input: {
-        borderBottomColor: "#8A8F9E",
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        height: 40,
-        fontSize: 15,
-        color: "#161F3D"
-    },
-    button: {
-        marginHorizontal: 30,
-        backgroundColor: "#5799a6",
-        borderRadius: 4,
-        height: 52,
-        alignItems: "center",
-        justifyContent: "center"
-    }
-});

@@ -1,6 +1,6 @@
 import React from "react";
 import {View, Text, Button} from "react-native";
-import {Container, Icon} from "native-base";
+//import {Container, Icon} from "native-base";
 import {DetailsScreenStyles}  from '../styles/detailsScreenStyles';
 import ViewWrap  from '../components/viewWrap';
 import {  RoundedButton, RoundedInput } from '../components/formElements';

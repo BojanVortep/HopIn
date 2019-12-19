@@ -1,21 +1,17 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, TextInput, Image, Button } from "react-native";
-//import Constants from "expo-constants";
-//import * as Permissions from "expo-permissions";
 import {Container, Icon, Picker} from "native-base";
-import {  Navigate } from '../utils/navigator';
-import {  RoundedButton, RoundedInput } from '../components/formElements';
+//import {  Navigate } from '../utils/navigator';
+//import {  RoundedButton, RoundedInput } from '../components/formElements';
 import Fire from "../utils/fire";
 import {FormStyles}  from '../styles/formStyles';
-import ViewWrap  from '../components/viewWrap';
+//import ViewWrap  from '../components/viewWrap';
 import DatePicker from 'react-native-datepicker';
+import {PostScreenStyles} from '../styles/postScreenStyles';
+
 import NumericInput from 'react-native-numeric-input';
-//import icon from 'react-native-vector-icons';
-//import * as ImagePicker from "expo-image-picker";
 import {
-    Asset,
     Constants,
-    FileSystem,
     Permissions,
     ImagePicker
   } from 'react-native-unimodules';
@@ -109,8 +105,8 @@ class PostScreen extends React.PureComponent {
     render() {
         let {} = this.props;
         return (
-            <SafeAreaView style={styles.container}>
-                <View style={styles.header}>
+            <SafeAreaView style={[PostScreenStyles.container]}>
+                <View style={PostScreenStyles.header}>
                      <TouchableOpacity onPress={() => this.props.navigation.goBack()} >
                      <Text>Назад</Text>
                     </TouchableOpacity> 
@@ -119,8 +115,8 @@ class PostScreen extends React.PureComponent {
                     </TouchableOpacity>
                 </View>
 
-                 <View style={styles.inputContainer}>
-                    <Image source={require("../resurces/guy.png")} style={styles.avatar}></Image>
+                 <View style={PostScreenStyles.inputContainer}>
+                    <Image source={require("../resurces/guy.png")} style={PostScreenStyles.avatar}></Image>
                     <TextInput
                         autoFocus={true}
                         multiline={true}
@@ -130,7 +126,7 @@ class PostScreen extends React.PureComponent {
                         onChangeText={text => this.setState({ text })}
                         value={this.state.text}
                     ></TextInput>
-                    <TouchableOpacity style={styles.photo}  onPress={this.pickImage}>
+                    <TouchableOpacity style={PostScreenStyles.photo}  onPress={this.pickImage}>
                     <Text> Slika </Text>
                 </TouchableOpacity>
                 </View>
@@ -266,33 +262,5 @@ class PostScreen extends React.PureComponent {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    header: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        paddingHorizontal: 32,
-        paddingVertical: 12,
-        borderBottomWidth: 1,
-        borderBottomColor: "#D8D9DB"
-    },
-    inputContainer: {
-        margin: 32,
-        flexDirection: "row"
-    },
-    avatar: {
-        width: 48,
-        height: 48,
-        borderRadius: 24,
-        marginRight: 16
-    },
-    photo: {
-        alignItems: "flex-end",
-        marginHorizontal: 32
-    }
-});
 
 export default  PostScreen;

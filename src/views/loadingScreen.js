@@ -1,6 +1,6 @@
 import React from "react";
 import {View, Text, Button, ActivityIndicator} from "react-native";
-import {Container, Icon} from "native-base";
+import {Container} from "native-base";
 
 import firebase from "firebase";
 import Fire from "../utils/fire";

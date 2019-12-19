@@ -4,7 +4,7 @@ export const FormStyles = StyleSheet.create({
     filterContainer:
         {
             flexDirection: 'column',
-            alignItems: 'stretch',
+            alignItems: 'flex-start',
             justifyContent: 'center',
             paddingHorizontal: '5%'
         },

@@ -11,7 +11,7 @@ import ViewWrap  from '../components/viewWrap';
 class LoadingScreen extends React.Component {
     componentDidMount() {
         if (Fire.shared.uid) {
-            Navigate("App");
+            Navigate("Main");
         } else {
             firebase.auth().onAuthStateChanged(user => {
                 Navigate(user ? "Main" : "Auth") 

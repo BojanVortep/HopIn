@@ -8,9 +8,7 @@ public class BasePackageList {
   public List<Package> getPackageList() {
     return Arrays.<Package>asList(
         new expo.modules.constants.ConstantsPackage(),
-        new expo.modules.documentpicker.DocumentPickerPackage(),
         new expo.modules.filesystem.FileSystemPackage(),
-        new expo.modules.imagepicker.ImagePickerPackage(),
         new expo.modules.permissions.PermissionsPackage()
     );
   }
